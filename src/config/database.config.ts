@@ -13,7 +13,7 @@ const dataSourceOptions: DataSourceOptions = {
   migrations: ['dist/migrations/*.{js,ts}'],
   subscribers: ['dist/subscribers/**/*.{js,ts}'],
   connectorPackage: 'mysql2',
-  synchronize: false,
+  synchronize: process.env.NODE_ENV !== 'production',
 };
 
 export const databaseConfigKey = 'database';
