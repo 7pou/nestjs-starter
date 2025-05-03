@@ -1,3 +1,4 @@
+import { ApiHideProperty } from '@nestjs/swagger';
 import {
   BaseEntity,
   CreateDateColumn,
@@ -16,6 +17,7 @@ export abstract class CommonEntity extends BaseEntity {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @DeleteDateColumn({ name: 'deleted_at' })
+  @DeleteDateColumn({ name: 'deleted_at', select: false })
+  @ApiHideProperty()
   deletedAt: Date;
 }
